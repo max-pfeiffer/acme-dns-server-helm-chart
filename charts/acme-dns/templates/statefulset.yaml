@@ -49,11 +49,10 @@ spec:
             - name: dns-udp
               containerPort: {{ .Values.ports.dnsUdp }}
               protocol: UDP
-          livenessProbe:
-            httpGet:
-              path: /health
-              port: api
           readinessProbe:
+            tcpSocket:
+              port: 443
+          livenessProbe:
             httpGet:
               path: /health
               port: api
