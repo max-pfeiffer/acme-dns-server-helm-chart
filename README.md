@@ -5,6 +5,11 @@ This Helm chart runs [acme-dns](https://github.com/joohoi/acme-dns) as StatefulS
 Using PostgreSql as database is currently not supported by this Helm chart.
 
 ## Installation
+The installation is done as follows:
+```shell
+$ helm repo add acme-dns https://max-pfeiffer.github.io/acme-dns-server-helm-chart
+$ helm install acme-dns acme-dns/acme-dns --values your_values.yaml --namespace yournamespace 
+```
 
 ## Configuration
 In the Kubernetes context you usually use [acme-dns](https://github.com/joohoi/acme-dns) in conjunction with [cert-manager](https://cert-manager.io/).
