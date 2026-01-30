@@ -49,18 +49,22 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-ports:
-  api: 443
-  dnsTcp: 53
-  dnsUdp: 53
-
 services:
-  headless:
-    type: ClusterIP
   api:
     type: LoadBalancer
+    ports:
+      api: 443
+    metadata:
+      labels: {}
+      annotations: {}
   dns:
     type: LoadBalancer
+    ports:
+      dnsTcp: 53
+      dnsUdp: 53
+    metadata:
+      labels: {}
+      annotations: {}
 
 # This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ingress:
@@ -144,7 +148,7 @@ tolerations: []
 
 affinity: {}
 
-sqliteVolumeSize: 100Mi
+sqliteVolumeSize: 100M
 
 # See: https://github.com/joohoi/acme-dns
 config: |
@@ -152,7 +156,7 @@ config: |
   # DNS interface. Note that systemd-resolved may reserve port 53 on 127.0.0.53
   # In this case acme-dns will error out and you will need to define the listening interface
   # for example: listen = "127.0.0.1:53"
-  listen = "127.0.0.1:53"
+  listen = "0.0.0.0:53"
   # protocol, "both", "both4", "both6", "udp", "udp4", "udp6" or "tcp", "tcp4", "tcp6"
   protocol = "both"
   # domain name to serve the requests off of
