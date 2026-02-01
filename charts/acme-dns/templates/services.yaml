@@ -55,7 +55,7 @@ metadata:
     {{- with .Values.services.dns.metadata.labels }}
     {{- toYaml . | nindent 4 }}
     {{- end }}
-  {{- with .Values.services.api.metadata.annotations }}
+  {{- with .Values.services.dns.metadata.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
