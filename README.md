@@ -1,4 +1,4 @@
-# acme-dns-server-helm-chart
+# ACME DNS Server Helm Chart
 A Helm chart for [acme-dns server](https://github.com/joohoi/acme-dns).
 
 This Helm chart runs [acme-dns](https://github.com/joohoi/acme-dns) as StatefulSet with a SQLite database.
