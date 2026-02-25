@@ -6,9 +6,7 @@ on:
       - charts/**
 
 jobs:
-  release:
-    permissions:
-      contents: write
+  lint:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
